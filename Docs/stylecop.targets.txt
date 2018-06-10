@@ -1,1 +1,0 @@
-  <Import Project="$(SolutionDir)\Source\SharedBinaries\StyleCop\v4.5\StyleCop.targets" />

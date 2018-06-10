@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.UI.WPF", "Source\XGamer\Source\XGamer.UI.WPF\XGamer.UI.WPF.csproj", "{D193B17D-FD9B-4507-BFFD-20B5D4DA089D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.UI.WPF.Tests", "Source\XGamer\UnitTests\XGamer.UI.WPF.Tests\XGamer.UI.WPF.Tests.csproj", "{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}"
@@ -8,11 +10,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5376D122-8FA2-432F-8C30-29BB77EFE41B}"
 	ProjectSection(SolutionItems) = preProject
 		Source\SharedSource\GlobalAssemblyInfo.cs = Source\SharedSource\GlobalAssemblyInfo.cs
-		Local.testsettings = Local.testsettings
 		Settings.StyleCop = Settings.StyleCop
-		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 		XGamer.ruleset = XGamer.ruleset
-		XGamer.vsmdi = XGamer.vsmdi
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.Data.Entities", "Source\SharedSource\XGamer.Data\XGamer.Data.Entities.csproj", "{C09123A2-161A-4E7B-BC74-6D2B996F248C}"
@@ -26,36 +25,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.Data.EF", "Source\XGamer\Source\XGamer.Data.EF\XGamer.Data.EF.csproj", "{6BCA1952-7A73-4A6B-ABB3-DCBE1C25BCF0}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 8
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://cuca:8080/tfs/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Source\\XGamer\\Source\\XGamer.UI.WPF\\XGamer.UI.WPF.csproj
-		SccProjectName1 = Source/XGamer/Source/XGamer.UI.WPF
-		SccLocalPath1 = Source\\XGamer\\Source\\XGamer.UI.WPF
-		SccProjectUniqueName2 = Source\\XGamer\\UnitTests\\XGamer.UI.WPF.Tests\\XGamer.UI.WPF.Tests.csproj
-		SccProjectName2 = Source/XGamer/UnitTests/XGamer.UI.WPF.Tests
-		SccLocalPath2 = Source\\XGamer\\UnitTests\\XGamer.UI.WPF.Tests
-		SccProjectUniqueName3 = Source\\XGamer\\UnitTests\\XGamer.Core.Tests\\XGamer.Core.Tests.csproj
-		SccProjectName3 = Source/XGamer/UnitTests/XGamer.Core.Tests
-		SccLocalPath3 = Source\\XGamer\\UnitTests\\XGamer.Core.Tests
-		SccProjectUniqueName4 = Source\\SharedSource\\XGamer.Core\\XGamer.Core.csproj
-		SccProjectName4 = Source/SharedSource/XGamer.Core
-		SccLocalPath4 = Source\\SharedSource\\XGamer.Core
-		SccProjectUniqueName5 = Source\\SharedSource\\XGamer.Data.Core\\XGamer.Data.Core.csproj
-		SccProjectName5 = Source/SharedSource/XGamer.Data.Core
-		SccLocalPath5 = Source\\SharedSource\\XGamer.Data.Core
-		SccProjectUniqueName6 = Source\\SharedSource\\XGamer.Data\\XGamer.Data.Entities.csproj
-		SccProjectName6 = Source/SharedSource/XGamer.Data
-		SccLocalPath6 = Source\\SharedSource\\XGamer.Data
-		SccProjectUniqueName7 = Source\\XGamer\\Source\\XGamer.Data.EF\\XGamer.Data.EF.csproj
-		SccProjectName7 = Source/XGamer/Source/XGamer.Data.EF
-		SccLocalPath7 = Source\\XGamer\\Source\\XGamer.Data.EF
-	EndGlobalSection
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = XGamer.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -138,5 +107,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6D37CA0E-1B8D-4BC7-A2EF-10B28CEF8E63}
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = XGamer.vsmdi
 	EndGlobalSection
 EndGlobal
