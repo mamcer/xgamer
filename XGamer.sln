@@ -9,9 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.UI.WPF.Tests", "src\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5376D122-8FA2-432F-8C30-29BB77EFE41B}"
 	ProjectSection(SolutionItems) = preProject
-		Source\SharedSource\GlobalAssemblyInfo.cs = src\common\GlobalAssemblyInfo.cs
-		Settings.StyleCop = Settings.StyleCop
-		XGamer.ruleset = XGamer.ruleset
+		src\Common\GlobalAssemblyInfo.cs = src\Common\GlobalAssemblyInfo.cs
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.Data.Entities", "src\XGamer.Data\XGamer.Data.Entities.csproj", "{C09123A2-161A-4E7B-BC74-6D2B996F248C}"

@@ -2,33 +2,30 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using System.Windows.Media.Imaging;
-    using System.ComponentModel;
     using System.IO;
 
     public class ImageCache
     {
-        public static readonly object lockObject = new object();
+        public static readonly object LockObject = new object();
 
-        private Dictionary<string, BitmapImage> cacheDictionary;
-        private string[] imageFilePaths;
-        private int imageIndex;          
+        private readonly Dictionary<string, BitmapImage> _cacheDictionary;
+        private readonly string[] _imageFilePaths;
+        private int _imageIndex;          
 
         public ImageCache(string imageFolderPath)
         {
-            this.cacheDictionary = new Dictionary<string, BitmapImage>();
-            this.imageFilePaths = Directory.GetFiles(imageFolderPath, "*.jpg", SearchOption.AllDirectories);
-            this.imageIndex = 0;
+            _cacheDictionary = new Dictionary<string, BitmapImage>();
+            _imageFilePaths = Directory.GetFiles(imageFolderPath, "*.jpg", SearchOption.AllDirectories);
+            _imageIndex = 0;
         }
 
         public void ProcessImageFolder()
         {
-            while (this.imageIndex < this.imageFilePaths.Length)
+            while (_imageIndex < _imageFilePaths.Length)
             {
                 BitmapImage bi = new BitmapImage();
-                string imagePath = this.imageFilePaths[this.imageIndex];
+                string imagePath = _imageFilePaths[_imageIndex];
                 try
                 {
                     bi.BeginInit();
@@ -42,24 +39,27 @@
                 }
 
                 string fileName = Path.GetFileName(imagePath);
-                this.SetImage(bi, fileName);
-                this.imageIndex += 1;
+                SetImage(bi, fileName);
+                _imageIndex += 1;
             }
         }
 
         private void SetImage(BitmapImage bi, string key)
         {
-            lock (lockObject)
+            lock (LockObject)
             {
-                this.cacheDictionary[key] = bi;
+                _cacheDictionary[key] = bi;
             }
         }
 
         public BitmapImage GetImage(string key)
         {
-            if (this.cacheDictionary.ContainsKey(key))
+            lock (LockObject)
             {
-                return this.cacheDictionary[key];
+                if (_cacheDictionary.ContainsKey(key))
+                {
+                    return _cacheDictionary[key];
+                }
             }
 
             return null;

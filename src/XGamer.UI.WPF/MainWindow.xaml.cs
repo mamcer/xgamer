@@ -22,48 +22,48 @@ namespace XGamer.UI.WPF
 
         public MainWindow()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
-            this.InititalizeTimer();
+            InititalizeTimer();
 
             IEnumerable<Game> allGames = XGamerEngine.Instance.GetAllGames();
-            this.lstGames.Items.Clear();
+            lstGames.Items.Clear();
             foreach (Game game in allGames)
             {
-                this.lstGames.Items.Add(new ListBoxItem() { Content = game.GameName, Uid = game.Id.ToString() });
+                lstGames.Items.Add(new ListBoxItem() { Content = game.GameName, Uid = game.Id.ToString() });
             }
 
-            this.lstGames.Focus();
-            if (this.lstGames.HasItems)
+            lstGames.Focus();
+            if (lstGames.HasItems)
             {
-                this.lstGames.SelectedIndex = 0;
+                lstGames.SelectedIndex = 0;
             }
 
-            this.Worker.DoWork += new DoWorkEventHandler(this.worker_DoWork);
+            Worker.DoWork += new DoWorkEventHandler(worker_DoWork);
 
-            this.lblGameCount.Content = string.Format("Total {0} Juegos", allGames.Count());
+            lblGameCount.Content = string.Format("Total {0} Juegos", allGames.Count());
         }
 
         public void SetPosterImage(BitmapImage source)
         {
-            this.imgPoster.Source = source.Clone();
+            imgPoster.Source = source.Clone();
         }
 
         public void SetInGameImage(BitmapImage source)
         {
-            this.imgInGame.Source = source.Clone();
+            imgInGame.Source = source.Clone();
         }
 
         private BackgroundWorker Worker
         {
             get
             {
-                if (this.worker == null)
+                if (worker == null)
                 {
-                    this.worker = new BackgroundWorker();
+                    worker = new BackgroundWorker();
                 }
 
-                return this.worker;
+                return worker;
             }
         }
 
@@ -92,32 +92,32 @@ namespace XGamer.UI.WPF
 
         private void InititalizeTimer()
         {
-            this.timer = new DispatcherTimer();
-            this.timer.Interval = new TimeSpan(0, 0, 1);
-            this.timer.Tick += new EventHandler(this.Timer_Tick);
-            this.timer.IsEnabled = true;
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Tick += new EventHandler(Timer_Tick);
+            timer.IsEnabled = true;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            this.lblCurrentTime.Content = string.Format("{0:00}:{1:00}", DateTime.Now.Hour, DateTime.Now.Minute);
+            lblCurrentTime.Content = string.Format("{0:00}:{1:00}", DateTime.Now.Hour, DateTime.Now.Minute);
         }
 
         private void LstGames_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            this.RunGame();
+            RunGame();
         }
 
         private void LblMinimize_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            this.WindowState = WindowState.Minimized;
+            WindowState = WindowState.Minimized;
         }
 
         private void LblClose_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            if (MessageBox.Show("Esto cerrará la Aplicación. Esta seguro?", this.Title, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Esto cerrará la Aplicación. Esta seguro?", Title, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                this.Close();
+                Close();
             }
         }
 
@@ -125,16 +125,16 @@ namespace XGamer.UI.WPF
         {
             if (e.Key == Key.Enter)
             {
-                this.RunGame();
+                RunGame();
             }
         }
 
         private void RunGame()
         {
-            ListBoxItem selectedGame = this.lstGames.SelectedItem as ListBoxItem;
+            ListBoxItem selectedGame = lstGames.SelectedItem as ListBoxItem;
             if (selectedGame != null)
             {
-                this.IsEnabled = false;
+                IsEnabled = false;
                 try
                 {
                     int gameId = Convert.ToInt32(selectedGame.Uid);
@@ -142,14 +142,14 @@ namespace XGamer.UI.WPF
                 }
                 finally
                 {
-                    this.IsEnabled = true;
+                    IsEnabled = true;
                 }
             }
         }
 
         private void lstGames_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ListBoxItem selectedGame = this.lstGames.SelectedItem as ListBoxItem;
+            ListBoxItem selectedGame = lstGames.SelectedItem as ListBoxItem;
             if (selectedGame != null)
             {
                 int gameId = Convert.ToInt32(selectedGame.Uid);
@@ -158,35 +158,35 @@ namespace XGamer.UI.WPF
                 BitmapImage bi = XGamerEngine.Instance.GetGamePosterById(gameId);
                 if (bi != null)
                 {
-                    this.imgPoster.Dispatcher.BeginInvoke((Action)delegate() { this.imgPoster.Source = bi; });
+                    imgPoster.Dispatcher.BeginInvoke((Action)delegate() { imgPoster.Source = bi; });
                 }
 
                 BitmapImage bi2 = XGamerEngine.Instance.GetGameInGamePosterById(gameId);
                 if (bi2 != null)
                 {
-                    this.imgInGame.Dispatcher.BeginInvoke((Action)delegate() { this.imgInGame.Source = bi2; });
+                    imgInGame.Dispatcher.BeginInvoke((Action)delegate() { imgInGame.Source = bi2; });
                 }
             }
         }
 
         private void lblMinimize_MouseEnter(object sender, MouseEventArgs e)
         {
-            this.lblMinimize.Foreground = System.Windows.Media.Brushes.Black;
+            lblMinimize.Foreground = System.Windows.Media.Brushes.Black;
         }
 
         private void lblMinimize_MouseLeave(object sender, MouseEventArgs e)
         {
-            this.lblMinimize.Foreground = System.Windows.Media.Brushes.White;
+            lblMinimize.Foreground = System.Windows.Media.Brushes.White;
         }
 
         private void lblClose_MouseEnter(object sender, MouseEventArgs e)
         {
-            this.lblClose.Foreground = System.Windows.Media.Brushes.Black;
+            lblClose.Foreground = System.Windows.Media.Brushes.Black;
         }
 
         private void lblClose_MouseLeave(object sender, MouseEventArgs e)
         {
-            this.lblClose.Foreground = System.Windows.Media.Brushes.White;
+            lblClose.Foreground = System.Windows.Media.Brushes.White;
         }
     }
 }

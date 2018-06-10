@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+using XGamer.Data.Core;
 using XGamer.Data.EF;
 
-namespace XGamer.Data.Core
+namespace XGamer.Core
 {
     public enum XGamerDataProviderType
     {

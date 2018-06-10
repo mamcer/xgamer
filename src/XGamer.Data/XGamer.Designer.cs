@@ -39,7 +39,7 @@ namespace XGamer.Data.Entities
         /// </summary>
         public XGamerEntities() : base("name=XGamerEntities", "XGamerEntities")
         {
-            this.ContextOptions.LazyLoadingEnabled = true;
+            ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
@@ -48,7 +48,7 @@ namespace XGamer.Data.Entities
         /// </summary>
         public XGamerEntities(string connectionString) : base(connectionString, "XGamerEntities")
         {
-            this.ContextOptions.LazyLoadingEnabled = true;
+            ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
@@ -57,7 +57,7 @@ namespace XGamer.Data.Entities
         /// </summary>
         public XGamerEntities(EntityConnection connection) : base(connection, "XGamerEntities")
         {
-            this.ContextOptions.LazyLoadingEnabled = true;
+            ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     

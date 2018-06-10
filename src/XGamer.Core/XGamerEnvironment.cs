@@ -16,10 +16,8 @@ namespace XGamer.Core
                 {
                     return Path.Combine(assemblyPath, ConfigurationManager.AppSettings[Resource.EmulatorsPath]);
                 }
-                else
-                {
-                    return Path.Combine(assemblyPath, Resource.DefaultEmulatorsPath);
-                }
+
+                return Path.Combine(assemblyPath, Resource.DefaultEmulatorsPath);
             }
         }
 
@@ -32,10 +30,8 @@ namespace XGamer.Core
                 {
                     return Path.Combine(assemblyPath, ConfigurationManager.AppSettings[Resource.RomsPath]);
                 }
-                else
-                {
-                    return Path.Combine(assemblyPath, Resource.DefaultRomsPath);
-                }
+
+                return Path.Combine(assemblyPath, Resource.DefaultRomsPath);
             }
         }
 
@@ -48,10 +44,8 @@ namespace XGamer.Core
                 {
                     return Path.Combine(assemblyPath, ConfigurationManager.AppSettings[Resource.PicturesPath]);
                 }
-                else
-                {
-                    return Path.Combine(assemblyPath, Resource.DefaultPicturesPath);
-                }
+
+                return Path.Combine(assemblyPath, Resource.DefaultPicturesPath);
             }
         }
     }
