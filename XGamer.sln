@@ -3,26 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.UI.WPF", "Source\XGamer\Source\XGamer.UI.WPF\XGamer.UI.WPF.csproj", "{D193B17D-FD9B-4507-BFFD-20B5D4DA089D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.UI.WPF", "src\XGamer.UI.WPF\XGamer.UI.WPF.csproj", "{D193B17D-FD9B-4507-BFFD-20B5D4DA089D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.UI.WPF.Tests", "Source\XGamer\UnitTests\XGamer.UI.WPF.Tests\XGamer.UI.WPF.Tests.csproj", "{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.UI.WPF.Tests", "src\XGamer.UI.WPF.Tests\XGamer.UI.WPF.Tests.csproj", "{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5376D122-8FA2-432F-8C30-29BB77EFE41B}"
 	ProjectSection(SolutionItems) = preProject
-		Source\SharedSource\GlobalAssemblyInfo.cs = Source\SharedSource\GlobalAssemblyInfo.cs
+		Source\SharedSource\GlobalAssemblyInfo.cs = src\common\GlobalAssemblyInfo.cs
 		Settings.StyleCop = Settings.StyleCop
 		XGamer.ruleset = XGamer.ruleset
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.Data.Entities", "Source\SharedSource\XGamer.Data\XGamer.Data.Entities.csproj", "{C09123A2-161A-4E7B-BC74-6D2B996F248C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.Data.Entities", "src\XGamer.Data\XGamer.Data.Entities.csproj", "{C09123A2-161A-4E7B-BC74-6D2B996F248C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.Core.Tests", "Source\XGamer\UnitTests\XGamer.Core.Tests\XGamer.Core.Tests.csproj", "{D2F41AE3-63C6-4D1B-899F-E11E845CE97C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.Core.Tests", "src\XGamer.Core.Tests\XGamer.Core.Tests.csproj", "{D2F41AE3-63C6-4D1B-899F-E11E845CE97C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.Core", "Source\SharedSource\XGamer.Core\XGamer.Core.csproj", "{25C9C86F-7DB3-4A5B-BABF-3343AA9A5246}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.Core", "src\XGamer.Core\XGamer.Core.csproj", "{25C9C86F-7DB3-4A5B-BABF-3343AA9A5246}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.Data.Core", "Source\SharedSource\XGamer.Data.Core\XGamer.Data.Core.csproj", "{A821C77A-C071-4A62-BC17-B09E50E322AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.Data.Core", "src\XGamer.Data.Core\XGamer.Data.Core.csproj", "{A821C77A-C071-4A62-BC17-B09E50E322AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.Data.EF", "Source\XGamer\Source\XGamer.Data.EF\XGamer.Data.EF.csproj", "{6BCA1952-7A73-4A6B-ABB3-DCBE1C25BCF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.Data.EF", "src\XGamer.Data.EF\XGamer.Data.EF.csproj", "{6BCA1952-7A73-4A6B-ABB3-DCBE1C25BCF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
