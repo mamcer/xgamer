@@ -5,16 +5,12 @@ VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.UI.WPF", "src\XGamer.UI.WPF\XGamer.UI.WPF.csproj", "{D193B17D-FD9B-4507-BFFD-20B5D4DA089D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.UI.WPF.Tests", "src\XGamer.UI.WPF.Tests\XGamer.UI.WPF.Tests.csproj", "{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5376D122-8FA2-432F-8C30-29BB77EFE41B}"
 	ProjectSection(SolutionItems) = preProject
 		src\Common\GlobalAssemblyInfo.cs = src\Common\GlobalAssemblyInfo.cs
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.Data.Entities", "src\XGamer.Data\XGamer.Data.Entities.csproj", "{C09123A2-161A-4E7B-BC74-6D2B996F248C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.Core.Tests", "src\XGamer.Core.Tests\XGamer.Core.Tests.csproj", "{D2F41AE3-63C6-4D1B-899F-E11E845CE97C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.Core", "src\XGamer.Core\XGamer.Core.csproj", "{25C9C86F-7DB3-4A5B-BABF-3343AA9A5246}"
 EndProject
@@ -42,16 +38,6 @@ Global
 		{D193B17D-FD9B-4507-BFFD-20B5D4DA089D}.Release|Mixed Platforms.Build.0 = Release|x86
 		{D193B17D-FD9B-4507-BFFD-20B5D4DA089D}.Release|x86.ActiveCfg = Release|x86
 		{D193B17D-FD9B-4507-BFFD-20B5D4DA089D}.Release|x86.Build.0 = Release|x86
-		{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}.Release|x86.ActiveCfg = Release|Any CPU
 		{C09123A2-161A-4E7B-BC74-6D2B996F248C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C09123A2-161A-4E7B-BC74-6D2B996F248C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C09123A2-161A-4E7B-BC74-6D2B996F248C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -62,16 +48,6 @@ Global
 		{C09123A2-161A-4E7B-BC74-6D2B996F248C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{C09123A2-161A-4E7B-BC74-6D2B996F248C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{C09123A2-161A-4E7B-BC74-6D2B996F248C}.Release|x86.ActiveCfg = Release|Any CPU
-		{D2F41AE3-63C6-4D1B-899F-E11E845CE97C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D2F41AE3-63C6-4D1B-899F-E11E845CE97C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D2F41AE3-63C6-4D1B-899F-E11E845CE97C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{D2F41AE3-63C6-4D1B-899F-E11E845CE97C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{D2F41AE3-63C6-4D1B-899F-E11E845CE97C}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{D2F41AE3-63C6-4D1B-899F-E11E845CE97C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D2F41AE3-63C6-4D1B-899F-E11E845CE97C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D2F41AE3-63C6-4D1B-899F-E11E845CE97C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{D2F41AE3-63C6-4D1B-899F-E11E845CE97C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{D2F41AE3-63C6-4D1B-899F-E11E845CE97C}.Release|x86.ActiveCfg = Release|Any CPU
 		{25C9C86F-7DB3-4A5B-BABF-3343AA9A5246}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{25C9C86F-7DB3-4A5B-BABF-3343AA9A5246}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25C9C86F-7DB3-4A5B-BABF-3343AA9A5246}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
