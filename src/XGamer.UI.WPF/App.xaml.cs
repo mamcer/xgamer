@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Windows;
+﻿using System.Windows;
 
 namespace XGamer.UI.WPF
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
         private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
@@ -18,7 +10,7 @@ namespace XGamer.UI.WPF
             ErrorWindow error = new ErrorWindow(e.Exception);
             try
             {
-                error.Owner = Application.Current.MainWindow;
+                error.Owner = Current.MainWindow;
             }
             catch
             {
@@ -29,7 +21,7 @@ namespace XGamer.UI.WPF
             
             if (error.Owner == null)
             {
-                Application.Current.Shutdown(0);
+                Current.Shutdown(0);
             }
         }
     }

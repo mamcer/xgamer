@@ -12,13 +12,10 @@ using XGamer.Data.Entities;
 
 namespace XGamer.UI.WPF
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        private DispatcherTimer timer;
-        private BackgroundWorker worker;
+        private DispatcherTimer _timer;
+        private BackgroundWorker _worker;
 
         public MainWindow()
         {
@@ -39,9 +36,9 @@ namespace XGamer.UI.WPF
                 lstGames.SelectedIndex = 0;
             }
 
-            Worker.DoWork += new DoWorkEventHandler(worker_DoWork);
+            Worker.DoWork += worker_DoWork;
 
-            lblGameCount.Content = string.Format("Total {0} Juegos", allGames.Count());
+            lblGameCount.Content = $"Total {allGames.Count()} Juegos";
         }
 
         public void SetPosterImage(BitmapImage source)
@@ -58,12 +55,12 @@ namespace XGamer.UI.WPF
         {
             get
             {
-                if (worker == null)
+                if (_worker == null)
                 {
-                    worker = new BackgroundWorker();
+                    _worker = new BackgroundWorker();
                 }
 
-                return worker;
+                return _worker;
             }
         }
 
@@ -92,15 +89,18 @@ namespace XGamer.UI.WPF
 
         private void InititalizeTimer()
         {
-            timer = new DispatcherTimer();
-            timer.Interval = new TimeSpan(0, 0, 1);
-            timer.Tick += new EventHandler(Timer_Tick);
-            timer.IsEnabled = true;
+            _timer = new DispatcherTimer
+            {
+                Interval = new TimeSpan(0, 0, 1)
+            };
+
+            _timer.Tick += Timer_Tick;
+            _timer.IsEnabled = true;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            lblCurrentTime.Content = string.Format("{0:00}:{1:00}", DateTime.Now.Hour, DateTime.Now.Minute);
+            lblCurrentTime.Content = $"{DateTime.Now.Hour:00}:{DateTime.Now.Minute:00}";
         }
 
         private void LstGames_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -131,8 +131,7 @@ namespace XGamer.UI.WPF
 
         private void RunGame()
         {
-            ListBoxItem selectedGame = lstGames.SelectedItem as ListBoxItem;
-            if (selectedGame != null)
+            if (lstGames.SelectedItem is ListBoxItem selectedGame)
             {
                 IsEnabled = false;
                 try
@@ -149,8 +148,7 @@ namespace XGamer.UI.WPF
 
         private void lstGames_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ListBoxItem selectedGame = lstGames.SelectedItem as ListBoxItem;
-            if (selectedGame != null)
+            if (lstGames.SelectedItem is ListBoxItem selectedGame)
             {
                 int gameId = Convert.ToInt32(selectedGame.Uid);
 
@@ -158,13 +156,19 @@ namespace XGamer.UI.WPF
                 BitmapImage bi = XGamerEngine.Instance.GetGamePosterById(gameId);
                 if (bi != null)
                 {
-                    imgPoster.Dispatcher.BeginInvoke((Action)delegate() { imgPoster.Source = bi; });
+                    imgPoster.Dispatcher.BeginInvoke((Action) delegate
+                    {
+                        imgPoster.Source = bi;
+                    });
                 }
 
                 BitmapImage bi2 = XGamerEngine.Instance.GetGameInGamePosterById(gameId);
                 if (bi2 != null)
                 {
-                    imgInGame.Dispatcher.BeginInvoke((Action)delegate() { imgInGame.Source = bi2; });
+                    imgInGame.Dispatcher.BeginInvoke((Action) delegate
+                    {
+                        imgInGame.Source = bi2;
+                    });
                 }
             }
         }
