@@ -1,0 +1,4 @@
+INSERT INTO Game (RomName, GameName, Type, GamePoster, InGamePoster) VALUES ('sonic.the.hedgehog.3.bin', 'Sonic 3', 4, 'sonic.the.hedgehog.3.jpg', 'sonic.the.hedgehog.3.in.game.jpg')
+GO
+INSERT INTO Game (RomName, GameName, Type, GamePoster, InGamePoster) VALUES ('streets.of.rage.2.bin', 'Streets of Rage 2', 4, 'streets.of.rage.2.jpg', 'streets.of.rage.2.in.game.jpg')
+GO

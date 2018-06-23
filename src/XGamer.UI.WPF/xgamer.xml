@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XGamer>
+  <Emulators>
+    <Emulator>
+      <FileName>zsnesw.exe</FileName>
+      <Parameters>"{0}"</Parameters>
+      <IdRomType>1</IdRomType>
+    </Emulator>
+    <Emulator>
+      <FileName>Fusion.exe</FileName>
+      <Parameters>"{0}" -gen -fullscreen"</Parameters>
+      <IdRomType>2</IdRomType>
+    </Emulator>
+    <Emulator>
+      <FileName>mameppkgui.exe</FileName>
+      <Parameters>"{0}"</Parameters>
+      <IdRomType>3</IdRomType>
+    </Emulator>
+    <Emulator>
+      <FileName>project64.exe</FileName>
+      <Parameters>"{0}"</Parameters>
+      <IdRomType>4</IdRomType>
+    </Emulator>
+  </Emulators>
+  <RomTypes>
+    <RomType>
+      <Id>1</Id>
+      <Description>Snes</Description>
+    </RomType>
+    <RomType>
+      <Id>2</Id>
+      <Description>Genesis</Description>
+    </RomType>
+    <RomType>
+      <Id>3</Id>
+      <Description>Mame</Description>
+    </RomType>
+    <RomType>
+      <Id>4</Id>
+      <Description>N64</Description>
+    </RomType>
+  </RomTypes>
+  <Roms>
+    <Rom>
+      <Id>7</Id>
+      <FileName>1943</FileName>
+      <GameName>1943</GameName>
+      <IdRomType>3</IdRomType>
+      <Poster1FileName>1943.jpg</Poster1FileName>
+      <Poster2FileName>1943.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>8</Id>
+      <FileName>sonic.the.hedgehog.3.bin</FileName>
+      <GameName>Sonic 3</GameName>
+      <IdRomType>2</IdRomType>
+      <Poster1FileName>sonic.the.hedgehog.3.jpg</Poster1FileName>
+      <Poster2FileName>sonic.the.hedgehog.3.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>9</Id>
+      <FileName>streets.of.rage.2.bin</FileName>
+      <GameName>Streets of Rage 2</GameName>
+      <IdRomType>2</IdRomType>
+      <Poster1FileName>streets.of.rage.2.jpg</Poster1FileName>
+      <Poster2FileName>streets.of.rage.2.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>10</Id>
+      <FileName>galaga88</FileName>
+      <GameName>Galaga</GameName>
+      <IdRomType>3</IdRomType>
+      <Poster1FileName>galaga88.jpg</Poster1FileName>
+      <Poster2FileName>galaga88.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>11</Id>
+      <FileName>goldnax2</FileName>
+      <GameName>Golden Axe</GameName>
+      <IdRomType>3</IdRomType>
+      <Poster1FileName>Golden.axe.jpg</Poster1FileName>
+      <Poster2FileName>Golden.axe.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>13</Id>
+      <FileName>mk2</FileName>
+      <GameName>Mortal Kombat 2</GameName>
+      <IdRomType>3</IdRomType>
+      <Poster1FileName>mortal.kombat.2.jpg</Poster1FileName>
+      <Poster2FileName>mortal.kombat.2.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>14</Id>
+      <FileName>mk3</FileName>
+      <GameName>Mortal Kombat 3</GameName>
+      <IdRomType>3</IdRomType>
+      <Poster1FileName>mortal.kombat.3.jpg</Poster1FileName>
+      <Poster2FileName>mortal.kombat.3.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>15</Id>
+      <FileName>mk</FileName>
+      <GameName>Mortal Kombat</GameName>
+      <IdRomType>3</IdRomType>
+      <Poster1FileName>mortal.kombat.jpg</Poster1FileName>
+      <Poster2FileName>mortal.kombat.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>16</Id>
+      <FileName>pacmanbl</FileName>
+      <GameName>Pacman</GameName>
+      <IdRomType>3</IdRomType>
+      <Poster1FileName>pacman.jpg</Poster1FileName>
+      <Poster2FileName>pacman.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>17</Id>
+      <FileName>punisher</FileName>
+      <GameName>The Punisher</GameName>
+      <IdRomType>3</IdRomType>
+      <Poster1FileName>punisher.jpg</Poster1FileName>
+      <Poster2FileName>punisher.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>18</Id>
+      <FileName>ssriders</FileName>
+      <GameName>Sunset Riders</GameName>
+      <IdRomType>3</IdRomType>
+      <Poster1FileName>sunset.riders.jpg</Poster1FileName>
+      <Poster2FileName>sunset.riders.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>19</Id>
+      <FileName>ssf2</FileName>
+      <GameName>Super Street Fighter 2</GameName>
+      <IdRomType>3</IdRomType>
+      <Poster1FileName>super.street.fighter.2.jpg</Poster1FileName>
+      <Poster2FileName>super.street.fighter.2.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>20</Id>
+      <FileName>atetris</FileName>
+      <GameName>Tetris</GameName>
+      <IdRomType>3</IdRomType>
+      <Poster1FileName>tetris.jpg</Poster1FileName>
+      <Poster2FileName>tetris.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>21</Id>
+      <FileName>donkey.kong.country.smc</FileName>
+      <GameName>Donkey Kong Country</GameName>
+      <IdRomType>1</IdRomType>
+      <Poster1FileName>donkey.kong.country.jpg</Poster1FileName>
+      <Poster2FileName>donkey.kong.country.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>22</Id>
+      <FileName>final.fight.smc</FileName>
+      <GameName>Final Fight</GameName>
+      <IdRomType>1</IdRomType>
+      <Poster1FileName>final.fight.jpg</Poster1FileName>
+      <Poster2FileName>final.fight.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>23</Id>
+      <FileName>lost.vikings.smc</FileName>
+      <GameName>The Lost Vikings</GameName>
+      <IdRomType>1</IdRomType>
+      <Poster1FileName>lost.vikings.jpg</Poster1FileName>
+      <Poster2FileName>lost.vikings.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>24</Id>
+      <FileName>super.mario.all.stars.smc</FileName>
+      <GameName>Super Mario All Stars</GameName>
+      <IdRomType>1</IdRomType>
+      <Poster1FileName>super.mario.all.stars.jpg</Poster1FileName>
+      <Poster2FileName>super.mario.all.stars.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>25</Id>
+      <FileName>super.metroid.smc</FileName>
+      <GameName>Super Metroid</GameName>
+      <IdRomType>1</IdRomType>
+      <Poster1FileName>super.metroid.jpg</Poster1FileName>
+      <Poster2FileName>super.metroid.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>26</Id>
+      <FileName>the.legend.of.zelda.smc</FileName>
+      <GameName>The Legend of Zelda</GameName>
+      <IdRomType>1</IdRomType>
+      <Poster1FileName>the.legend.of.zelda.jpg</Poster1FileName>
+      <Poster2FileName>the.legend.of.zelda.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>27</Id>
+      <FileName>yoshi.island.smc</FileName>
+      <GameName>Yoshi Island</GameName>
+      <IdRomType>1</IdRomType>
+      <Poster1FileName>yoshi.island.jpg</Poster1FileName>
+      <Poster2FileName>yoshi.island.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>29</Id>
+      <FileName>spang</FileName>
+      <GameName>Pang</GameName>
+      <IdRomType>3</IdRomType>
+      <Poster1FileName>pang.jpg</Poster1FileName>
+      <Poster2FileName>pang.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>30</Id>
+      <FileName>tmnt</FileName>
+      <GameName>Teenage Mutant Ninja Turtles</GameName>
+      <IdRomType>3</IdRomType>
+      <Poster1FileName>tmnt.jpg</Poster1FileName>
+      <Poster2FileName>tmnt.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>31</Id>
+      <FileName>wboy</FileName>
+      <GameName>Wonder Boy</GameName>
+      <IdRomType>3</IdRomType>
+      <Poster1FileName>wonder.boy.jpg</Poster1FileName>
+      <Poster2FileName>wonder.boy.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>32</Id>
+      <FileName>paper.mario.rom</FileName>
+      <GameName>Paper Mario</GameName>
+      <IdRomType>4</IdRomType>
+      <Poster1FileName>paper.mario.jpg</Poster1FileName>
+      <Poster2FileName>paper.mario.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>33</Id>
+      <FileName>zelda.ocarina.of.time.rom</FileName>
+      <GameName>The Legend of Zelda Ocarina of Time</GameName>
+      <IdRomType>4</IdRomType>
+      <Poster1FileName>zelda.ocarina.of.time.jpg</Poster1FileName>
+      <Poster2FileName>zelda.ocarina.of.time.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>34</Id>
+      <FileName>mario.64.v64</FileName>
+      <GameName>Super Mario 64</GameName>
+      <IdRomType>4</IdRomType>
+      <Poster1FileName>mario.64.jpg</Poster1FileName>
+      <Poster2FileName>mario.64.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>35</Id>
+      <FileName>mario.kart.64.v64</FileName>
+      <GameName>Mario Kart 64</GameName>
+      <IdRomType>4</IdRomType>
+      <Poster1FileName>mario.kart.64.jpg</Poster1FileName>
+      <Poster2FileName>mario.kart.64.in.game.jpg</Poster2FileName>
+    </Rom>
+    <Rom>
+      <Id>36</Id>
+      <FileName>star.fox.64.z64</FileName>
+      <GameName>Star Fox 64</GameName>
+      <IdRomType>4</IdRomType>
+      <Poster1FileName>star.fox.64.jpg</Poster1FileName>
+      <Poster2FileName>star.fox.64.in.game.jpg</Poster2FileName>
+    </Rom>
+  </Roms>
+</XGamer>

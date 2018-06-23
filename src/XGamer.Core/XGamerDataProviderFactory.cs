@@ -1,21 +1,22 @@
 ﻿using System;
-using XGamer.Data.Core;
-using XGamer.Data.EF;
 
-namespace XGamer.Core
+using XGamer.Data.XML;
+
+namespace XGamer.Data.Core
 {
     public enum XGamerDataProviderType
     {
-        EntityFramework = 0
+        EntityFramework = 0,
+        Xml = 1
     }
 
     public static class XGamerDataProviderFactory
     {
         public static IXGamerDataProvider GetDataProvider(XGamerDataProviderType type)
         {
-            if (type == XGamerDataProviderType.EntityFramework)
+            if(type == XGamerDataProviderType.Xml)
             {
-                return EFDataProvider.Instance;
+                return XMLDataProvider.Instance;
             }
 
             throw new NotImplementedException("XGamerDataProviderType not supported.");

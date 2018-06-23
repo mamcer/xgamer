@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -9,14 +9,15 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>XGamer.Core</RootNamespace>
-    <AssemblyName>XGamer.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <AssemblyName>xgamer.core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
-    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -27,8 +28,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>..\..\XGamer.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>..\FXCop.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -37,15 +37,26 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
+    <Reference Include="StyleCop">
+      <HintPath>..\packages\StyleCop.4.7.41.0\lib\net35\StyleCop.dll</HintPath>
+    </Reference>
+    <Reference Include="StyleCop.CSharp">
+      <HintPath>..\packages\StyleCop.4.7.41.0\lib\net35\StyleCop.CSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Windows.Presentation" />
     <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -65,24 +76,27 @@
     <Compile Include="XGamerEnvironment.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\XGamer.Data.EF\XGamer.Data.EF.csproj">
-      <Project>{6BCA1952-7A73-4A6B-ABB3-DCBE1C25BCF0}</Project>
-      <Name>XGamer.Data.EF</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\XGamer.Data.Core\XGamer.Data.Core.csproj">
-      <Project>{A821C77A-C071-4A62-BC17-B09E50E322AB}</Project>
-      <Name>XGamer.Data.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\XGamer.Data\XGamer.Data.Entities.csproj">
-      <Project>{C09123A2-161A-4E7B-BC74-6D2B996F248C}</Project>
-      <Name>XGamer.Data.Entities</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XGamer.Data.Core\XGamer.Data.Core.csproj">
+      <Project>{a821c77a-c071-4a62-bc17-b09e50e322ab}</Project>
+      <Name>XGamer.Data.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XGamer.Data.XML\XGamer.Data.XML.csproj">
+      <Project>{023c0874-e1cd-42e8-bd71-50b6a45c4e34}</Project>
+      <Name>XGamer.Data.XML</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XGamer.Data\XGamer.Data.Entities.csproj">
+      <Project>{c09123a2-161a-4e7b-bc74-6d2b996f248c}</Project>
+      <Name>XGamer.Data.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

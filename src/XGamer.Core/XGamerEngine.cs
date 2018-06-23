@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Media.Imaging;
+
 using XGamer.Data.Core;
 using XGamer.Data.Entities;
 
@@ -10,28 +11,29 @@ namespace XGamer.Core
 {
     public class XGamerEngine
     {
-        private IXGamerDataProvider _dataProvider;
-        private IEnumerable<Emulator> _emulators;
-        private IEnumerable<Game> _games;
-        private readonly ImageCache _imageCache;
-        private static XGamerEngine _instance;
+        private static XGamerEngine instance;
 
+        private IXGamerDataProvider dataProvider;
+        private IEnumerable<Emulator> emulators;
+        private IEnumerable<Rom> games;
+        private ImageCache imageCache;
+        
         private XGamerEngine()
         {
-            _imageCache = new ImageCache(XGamerEnvironment.PicturesPath);
-            _imageCache.ProcessImageFolder();
+            this.imageCache = new ImageCache(XGamerEnvironment.PicturesPath);
+            this.imageCache.ProcessImageFolder();
         }
 
         public static XGamerEngine Instance
         {
             get
             {
-                if (_instance == null)
+                if (instance == null)
                 {
-                    _instance = new XGamerEngine();
+                    instance = new XGamerEngine();
                 }
 
-                return _instance;
+                return instance;
             }
         }
 
@@ -39,25 +41,25 @@ namespace XGamer.Core
         {
             get
             {
-                if (_dataProvider == null)
+                if (this.dataProvider == null)
                 {
-                    _dataProvider = XGamerDataProviderFactory.GetDataProvider(XGamerDataProviderType.EntityFramework);
+                    this.dataProvider = XGamerDataProviderFactory.GetDataProvider(XGamerDataProviderType.Xml);
                 }
 
-                return _dataProvider;
+                return this.dataProvider;
             }
         }
 
-        private IEnumerable<Game> Games
+        private IEnumerable<Rom> Games
         {
             get
             {
-                if (_games == null)
+                if (this.games == null)
                 {
-                    _games = DataProvider.GetAllGames();
+                    this.games = this.DataProvider.GetAllGames();
                 }
 
-                return _games;
+                return this.games;
             }
         }
 
@@ -65,26 +67,26 @@ namespace XGamer.Core
         {
             get
             {
-                if (_emulators == null)
+                if (this.emulators == null)
                 {
-                    _emulators = DataProvider.GetAllEmulators();
+                    this.emulators = this.DataProvider.GetAllEmulators();
                 }
 
-                return _emulators;
+                return this.emulators;
             }
         }
 
-        public IEnumerable<Game> GetAllGames()
+        public IEnumerable<Rom> GetAllGames()
         {
-            return Games;
+            return this.Games;
         }
 
         public bool PlayGame(int gameId)
         {
-            Game game = GetGameById(gameId);
+            Rom game = this.GetGameById(gameId);
             if (game != null)
             {
-                Emulator emulator = Emulators.ToList().Find(x => x.RomType == game.Type);
+                Emulator emulator = this.Emulators.ToList().Find(x => x.IdRomType == game.IdRomType);
                 if (emulator != null)
                 {
                     return EmulatorManager.Instance.RunGame(emulator, game);
@@ -94,17 +96,18 @@ namespace XGamer.Core
             return false;
         }
 
-        public Game GetGameById(int gameId)
+        public Rom GetGameById(int gameId)
         {
-            return DataProvider.GetGameById(gameId);
+            return this.DataProvider.GetGameById(gameId);
         }
 
         public BitmapImage GetGamePosterById(int gameId)
         {
-            Game game = DataProvider.GetGameById(gameId);
+            Rom game = this.DataProvider.GetGameById(gameId);
 
-            string fileName = game.GamePoster;
-            var bi = _imageCache.GetImage(fileName);
+            string fileName = game.Poster1FileName;
+            BitmapImage bi = null;
+            bi = this.imageCache.GetImage(fileName);
             if (bi == null)
             {
                 bi = new BitmapImage();
@@ -113,7 +116,7 @@ namespace XGamer.Core
                     string posterPath = Path.Combine(XGamerEnvironment.PicturesPath, game.RomType.Description);
                     bi.BeginInit();
                     bi.CacheOption = BitmapCacheOption.OnLoad;
-                    bi.UriSource = new Uri(Path.Combine(posterPath, game.GamePoster));
+                    bi.UriSource = new Uri(Path.Combine(posterPath, game.Poster1FileName));
                     bi.EndInit();
                 }
                 catch
@@ -125,14 +128,14 @@ namespace XGamer.Core
             return bi;
         }
 
-
         public BitmapImage GetGameInGamePosterById(int gameId)
         {
-            Game game = DataProvider.GetGameById(gameId);
+            Rom game = this.DataProvider.GetGameById(gameId);
 
-            string fileName = game.InGamePoster;
+            string fileName = game.Poster2FileName;
+            BitmapImage bi = null;
 
-            var bi = _imageCache.GetImage(fileName);
+            bi = this.imageCache.GetImage(fileName);
             if (bi == null)
             {
                 bi = new BitmapImage();
@@ -141,7 +144,7 @@ namespace XGamer.Core
                     string posterPath = Path.Combine(XGamerEnvironment.PicturesPath, game.RomType.Description);
                     bi.BeginInit();
                     bi.CacheOption = BitmapCacheOption.OnLoad;
-                    bi.UriSource = new Uri(Path.Combine(posterPath, game.InGamePoster));
+                    bi.UriSource = new Uri(Path.Combine(posterPath, game.Poster2FileName));
                     bi.EndInit();
                 }
                 catch

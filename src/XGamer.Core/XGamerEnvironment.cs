@@ -1,7 +1,9 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Windows.Media;
 
 namespace XGamer.Core
 {
@@ -16,8 +18,10 @@ namespace XGamer.Core
                 {
                     return Path.Combine(assemblyPath, ConfigurationManager.AppSettings[Resource.EmulatorsPath]);
                 }
-
-                return Path.Combine(assemblyPath, Resource.DefaultEmulatorsPath);
+                else
+                {
+                    return Path.Combine(assemblyPath, Resource.DefaultEmulatorsPath);
+                }
             }
         }
 
@@ -30,8 +34,10 @@ namespace XGamer.Core
                 {
                     return Path.Combine(assemblyPath, ConfigurationManager.AppSettings[Resource.RomsPath]);
                 }
-
-                return Path.Combine(assemblyPath, Resource.DefaultRomsPath);
+                else
+                {
+                    return Path.Combine(assemblyPath, Resource.DefaultRomsPath);
+                }
             }
         }
 
@@ -44,8 +50,28 @@ namespace XGamer.Core
                 {
                     return Path.Combine(assemblyPath, ConfigurationManager.AppSettings[Resource.PicturesPath]);
                 }
+                else
+                {
+                    return Path.Combine(assemblyPath, Resource.DefaultPicturesPath);
+                }
+            }
+        }
 
-                return Path.Combine(assemblyPath, Resource.DefaultPicturesPath);
+        public static Color BackgroundColor
+        {
+            get
+            {
+                byte r = Convert.ToByte(128);
+                byte g = 0;
+                byte b = Convert.ToByte(128);
+                if (ConfigurationManager.AppSettings.AllKeys.Contains(Resource.BackgroundR) && ConfigurationManager.AppSettings.AllKeys.Contains(Resource.BackgroundG) && ConfigurationManager.AppSettings.AllKeys.Contains(Resource.BackgroundB))
+                {
+                    r = Convert.ToByte(ConfigurationManager.AppSettings[Resource.BackgroundR]);
+                    g = Convert.ToByte(ConfigurationManager.AppSettings[Resource.BackgroundG]);
+                    b = Convert.ToByte(ConfigurationManager.AppSettings[Resource.BackgroundB]);
+                }
+
+                return new Color() { R = r, G = g, B = b, A = 255 };
             }
         }
     }

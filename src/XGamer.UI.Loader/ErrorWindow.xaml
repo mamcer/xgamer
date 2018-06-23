@@ -1,0 +1,10 @@
+﻿<Window x:Class="XGamer.UI.Loader.ErrorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Error" Height="274" Width="458" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen" ShowInTaskbar="False">
+    <Grid Background="#FFC1CCDB">
+        <TextBox x:Name="txtError" Margin="0,0,0,40" IsReadOnly="True" TextWrapping="Wrap"></TextBox>
+        <Button x:Name="btnOk" Margin="0,0,180,8" Height="22" Width="80" Content="Ok" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="BtnOk_Click"></Button>
+        <Label Content="Copiar al portapapeles" Foreground="Blue" Cursor="Hand" Margin="0,0,0,8" Padding="0"  HorizontalAlignment="Right" Width="124" Height="26" VerticalAlignment="Bottom" MouseLeftButtonUp="Label_MouseLeftButtonUp" ></Label>
+    </Grid>
+</Window>

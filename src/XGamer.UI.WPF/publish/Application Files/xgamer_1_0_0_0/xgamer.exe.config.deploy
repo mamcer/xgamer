@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <appSettings>
+    <add key="BackgroundR" value="128"/>
+    <add key="BackgroundG" value="0"/>
+    <add key="BackgroundB" value="128"/>
+    <add key="RomsPath" value="Roms"/>
+    <add key="EmulatorsPath" value="Emulators"/>
+    <add key="PicturesPath" value="Pictures"/>
+  </appSettings>
+  
+  <connectionStrings>
+    <add name="XGamerEntities" connectionString="metadata=res://*/XGamer.csdl|res://*/XGamer.ssdl|res://*/XGamer.msl;provider=System.Data.SqlServerCe.3.5;provider connection string=&quot;Data Source=|DataDirectory|\XGamer.sdf&quot;" providerName="System.Data.EntityClient" />    
+  </connectionStrings>
+</configuration>

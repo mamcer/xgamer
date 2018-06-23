@@ -1,0 +1,14 @@
+INSERT INTO Game (RomName, GameName, Type, GamePoster, InGamePoster) VALUES ('donkey.kong.country.smc', 'Donkey Kong Country', 1, 'donkey.kong.country.jpg', 'donkey.kong.country.in.game.jpg')
+GO
+INSERT INTO Game (RomName, GameName, Type, GamePoster, InGamePoster) VALUES ('final.fight.smc', 'Final Fight', 1, 'final.fight.jpg', 'final.fight.in.game.jpg')
+GO
+INSERT INTO Game (RomName, GameName, Type, GamePoster, InGamePoster) VALUES ('lost.vikings.smc', 'The Lost Vikings', 1, 'lost.vikings.jpg', 'lost.vikings.in.game.jpg')
+GO
+INSERT INTO Game (RomName, GameName, Type, GamePoster, InGamePoster) VALUES ('super.mario.all.stars.smc', 'Super Mario All Stars', 1, 'super.mario.all.stars.jpg', 'super.mario.all.stars.in.game.jpg')
+GO
+INSERT INTO Game (RomName, GameName, Type, GamePoster, InGamePoster) VALUES ('super.metroid.smc', 'Super Metroid', 1, 'super.metroid.jpg', 'super.metroid.in.game.jpg')
+GO
+INSERT INTO Game (RomName, GameName, Type, GamePoster, InGamePoster) VALUES ('the.legend.of.zelda.smc', 'The Legend of Zelda', 1, 'the.legend.of.zelda.jpg', 'the.legend.of.zelda.in.game.jpg')
+GO
+INSERT INTO Game (RomName, GameName, Type, GamePoster, InGamePoster) VALUES ('yoshi.island.smc', 'Yoshi Island', 1, 'yoshi.island.jpg', 'yoshi.island.in.game.jpg')
+GO

@@ -8,28 +8,42 @@ namespace XGamer.Data.EF
 {
     public class EFDataProvider : IXGamerDataProvider
     {
-        private static EFDataProvider _instance;
-        private static readonly object LockObject = new object();
+        #region private fields
+
+        private static EFDataProvider instance;
+        private static object lockObject = new object();
+
+        #endregion
+
+        #region constructor
 
         private EFDataProvider()
         {
         }
-        
+
+        #endregion
+
+        #region private properties
+
         public static EFDataProvider Instance
         {
             get
             {
-                lock (LockObject)
+                lock (lockObject)
                 {
-                    if (_instance == null)
+                    if (instance == null)
                     {
-                        _instance = new EFDataProvider();
+                        instance = new EFDataProvider();
                     }
 
-                    return _instance;
+                    return instance;
                 }
             }
         }
+
+        #endregion
+
+        #region public methods
 
         public IEnumerable<Game> GetAllGames()
         {
@@ -48,5 +62,7 @@ namespace XGamer.Data.EF
             XGamerEntities xgamerEntities = new XGamerEntities();
             return xgamerEntities.Game.FirstOrDefault(x => x.Id == gameId);
         }
+        
+        #endregion
     }
 }
