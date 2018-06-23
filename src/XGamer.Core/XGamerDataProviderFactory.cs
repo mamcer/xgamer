@@ -16,7 +16,7 @@ namespace XGamer.Data.Core
         {
             if(type == XGamerDataProviderType.Xml)
             {
-                return XMLDataProvider.Instance;
+                return XmlDataProvider.Instance;
             }
 
             throw new NotImplementedException("XGamerDataProviderType not supported.");
