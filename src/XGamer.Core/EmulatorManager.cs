@@ -8,25 +8,25 @@ namespace XGamer.Core
 {
     public class EmulatorManager : IDisposable
     {
-        private static EmulatorManager instance;
-        private Process process;
+        private static EmulatorManager _instance;
+        private Process _process;
 
         private EmulatorManager()
         {
-            instance = null;
-            this.process = null;
+            _instance = null;
+            _process = null;
         }
 
         public static EmulatorManager Instance
         {
             get
             {
-                if (instance == null)
+                if (_instance == null)
                 {
-                    instance = new EmulatorManager();
+                    _instance = new EmulatorManager();
                 }
 
-                return instance;
+                return _instance;
             }
         }
 
@@ -45,34 +45,34 @@ namespace XGamer.Core
                 parameters = string.Format(emulator.Parameters, Path.Combine(romPath, game.FileName));
             }
 
-            this.process = new Process();
-            this.process.StartInfo = new ProcessStartInfo(emulatorPath, parameters);
+            _process = new Process();
+            _process.StartInfo = new ProcessStartInfo(emulatorPath, parameters);
             
             try
             {
-                this.process.Start();
+                _process.Start();
                 return true;
             }
             catch
             {
-                this.process.Dispose();
-                this.process = null;
+                _process.Dispose();
+                _process = null;
                 return false;   
             }
         }
 
         public void Dispose()
         {
-            this.Dispose(true);
+            Dispose(true);
             GC.SuppressFinalize(this);
         }
 
         protected virtual void Dispose(bool type = false)
         {
-            if (this.process != null)
+            if (_process != null)
             {
-                this.process.Dispose();
-                this.process = null;
+                _process.Dispose();
+                _process = null;
             }
         }
     }

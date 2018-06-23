@@ -15,17 +15,17 @@
 
         public ImageCache(string imageFolderPath)
         {
-            this.cacheDictionary = new Dictionary<string, BitmapImage>();
-            this.imageFilePaths = Directory.GetFiles(imageFolderPath, "*.jpg", SearchOption.AllDirectories);
-            this.imageIndex = 0;
+            cacheDictionary = new Dictionary<string, BitmapImage>();
+            imageFilePaths = Directory.GetFiles(imageFolderPath, "*.jpg", SearchOption.AllDirectories);
+            imageIndex = 0;
         }
 
         public void ProcessImageFolder()
         {
-            while (this.imageIndex < this.imageFilePaths.Length)
+            while (imageIndex < imageFilePaths.Length)
             {
                 BitmapImage bi = new BitmapImage();
-                string imagePath = this.imageFilePaths[this.imageIndex];
+                string imagePath = imageFilePaths[imageIndex];
                 try
                 {
                     bi.BeginInit();
@@ -39,16 +39,16 @@
                 }
 
                 string fileName = Path.GetFileName(imagePath);
-                this.SetImage(bi, fileName);
-                this.imageIndex += 1;
+                SetImage(bi, fileName);
+                imageIndex += 1;
             }
         }
 
         public BitmapImage GetImage(string key)
         {
-            if (this.cacheDictionary.ContainsKey(key))
+            if (cacheDictionary.ContainsKey(key))
             {
-                return this.cacheDictionary[key];
+                return cacheDictionary[key];
             }
 
             return null;
@@ -58,7 +58,7 @@
         {
             lock (lockObject)
             {
-                this.cacheDictionary[key] = bi;
+                cacheDictionary[key] = bi;
             }
         }
     }

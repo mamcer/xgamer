@@ -9,11 +9,11 @@ namespace XGamer.UI.Loader
     {
         public MainWindow()
         {
-            this.InitializeComponent();
-            if (this.IsAlreadyInstalled())
+            InitializeComponent();
+            if (IsAlreadyInstalled())
             {
-                this.btnFromPC.Background = new SolidColorBrush(new Color() { R = 128, G = 255, B = 128, A = 255 });
-                this.btnFromPC.Content = XGamer.UI.Loader.Properties.Resources.PlayFromPC;
+                btnFromPC.Background = new SolidColorBrush(new Color() { R = 128, G = 255, B = 128, A = 255 });
+                btnFromPC.Content = XGamer.UI.Loader.Properties.Resources.PlayFromPC;
             }
         }
 
@@ -21,7 +21,7 @@ namespace XGamer.UI.Loader
         {
             Directory.SetCurrentDirectory(Path.Combine(".", XGamer.UI.Loader.Properties.Resources.XGamerSourceDirectory));
             Process.Start(XGamer.UI.Loader.Properties.Resources.XGamerTargetName);
-            this.Close();
+            Close();
         }
 
         private bool IsAlreadyInstalled()
@@ -36,7 +36,7 @@ namespace XGamer.UI.Loader
         
         private void BtnFromPC_Click(object sender, RoutedEventArgs e)
         {
-            if (!this.IsAlreadyInstalled())
+            if (!IsAlreadyInstalled())
             {
                 Directory.CreateDirectory(XGamer.UI.Loader.Properties.Resources.XGamerTargetDirectory);
                 string sourcePath = XGamer.UI.Loader.Properties.Resources.XGamerSourceDirectory;
@@ -51,12 +51,12 @@ namespace XGamer.UI.Loader
 
             Directory.SetCurrentDirectory(XGamer.UI.Loader.Properties.Resources.XGamerTargetDirectory);
             Process.Start(Path.Combine(XGamer.UI.Loader.Properties.Resources.XGamerTargetDirectory, Path.Combine(XGamer.UI.Loader.Properties.Resources.XGamerTargetName)));
-            this.Close();
+            Close();
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

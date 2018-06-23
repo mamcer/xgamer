@@ -12,14 +12,14 @@ namespace XGamer.UI.Loader
     {
         public CopyInProgressWindow(string sourcePath, string destinationPath)
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
-            this.SourcePath = sourcePath;
-            this.DestinationPath = destinationPath;
-            this.Worker = new BackgroundWorker();
-            this.Worker.WorkerSupportsCancellation = true;
-            this.Worker.DoWork += new DoWorkEventHandler(this.Worker_DoWork);
-            this.Worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(this.Worker_RunWorkerCompleted);
+            SourcePath = sourcePath;
+            DestinationPath = destinationPath;
+            Worker = new BackgroundWorker();
+            Worker.WorkerSupportsCancellation = true;
+            Worker.DoWork += new DoWorkEventHandler(Worker_DoWork);
+            Worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(Worker_RunWorkerCompleted);
         }
 
         public string SourcePath { get; set; }
@@ -30,22 +30,22 @@ namespace XGamer.UI.Loader
 
         private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            this.Worker.Dispose();
+            Worker.Dispose();
 
             if (!e.Cancelled && e.Error == null)
             {
-                string parameters = "/F:" + Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\XGamer.lnk /A:C /T:" + Path.Combine(this.DestinationPath, XGamer.UI.Loader.Properties.Resources.XGamerTargetName) + " /W:" + this.DestinationPath + " /R:1";
+                string parameters = "/F:" + Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\XGamer.lnk /A:C /T:" + Path.Combine(DestinationPath, XGamer.UI.Loader.Properties.Resources.XGamerTargetName) + " /W:" + DestinationPath + " /R:1";
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo("shortcut.exe", parameters) { CreateNoWindow = true, UseShellExecute = false });
 
-                this.Dispatcher.BeginInvoke((System.Action)delegate { DialogResult = true; }, null);
+                Dispatcher.BeginInvoke((System.Action)delegate { DialogResult = true; }, null);
             }
 
-            this.Dispatcher.BeginInvoke((System.Action)delegate { DialogResult = false; }, null);
+            Dispatcher.BeginInvoke((System.Action)delegate { DialogResult = false; }, null);
         }
 
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
-            this.CopyDirectory(this.SourcePath, this.DestinationPath);
+            CopyDirectory(SourcePath, DestinationPath);
         }
 
         private void CopyDirectory(string source, string destination)
@@ -66,7 +66,7 @@ namespace XGamer.UI.Loader
             {
                 if (Directory.Exists(element))
                 {
-                    this.CopyDirectory(element, destination + Path.GetFileName(element));
+                    CopyDirectory(element, destination + Path.GetFileName(element));
                 }
                 else
                 {
@@ -77,13 +77,13 @@ namespace XGamer.UI.Loader
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
-            this.Worker.CancelAsync();
-            this.Dispatcher.BeginInvoke((System.Action)delegate { DialogResult = false; }, null);
+            Worker.CancelAsync();
+            Dispatcher.BeginInvoke((System.Action)delegate { DialogResult = false; }, null);
         }
 
         private void Window_Activated(object sender, System.EventArgs e)
         {
-            this.Worker.RunWorkerAsync();
+            Worker.RunWorkerAsync();
         }
     }
 }

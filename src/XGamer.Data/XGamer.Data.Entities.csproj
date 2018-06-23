@@ -75,7 +75,7 @@
     </Compile>
     <Compile Include="Emulator.cs" />
     <Compile Include="RomType.cs" />
-    <Compile Include="Game.cs" />
+    <Compile Include="Rom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

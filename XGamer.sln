@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7E334988-13D0-4514-AA06-9073337D4269}"
 	ProjectSection(SolutionItems) = preProject
 		FXCop.ruleset = FXCop.ruleset
@@ -15,8 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.Data.Entities", "src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.Data.Core", "src\XGamer.Data.Core\XGamer.Data.Core.csproj", "{A821C77A-C071-4A62-BC17-B09E50E322AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.Data.EF", "src\XGamer.Data.EF\XGamer.Data.EF.csproj", "{6BCA1952-7A73-4A6B-ABB3-DCBE1C25BCF0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.Data.XML", "src\XGamer.Data.XML\XGamer.Data.XML.csproj", "{023C0874-E1CD-42E8-BD71-50B6A45C4E34}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.UI.Loader", "src\XGamer.UI.Loader\XGamer.UI.Loader.csproj", "{5BCD8C6E-4697-4BE2-91CD-5796B760956C}"
@@ -26,39 +26,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.UI.WPF.Tests", "src\XGamer.UI.WPF.Tests\XGamer.UI.WPF.Tests.csproj", "{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 10
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://aldebaran:8080/tfs/legacycollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = src\\XGamer.Core\\XGamer.Core.csproj
-		SccProjectName1 = XGamer.Core
-		SccLocalPath1 = XGamer.Core
-		SccProjectUniqueName2 = src\\XGamer.Core.Tests\\XGamer.Core.Tests.csproj
-		SccProjectName2 = XGamer.Core.Tests
-		SccLocalPath2 = XGamer.Core.Tests
-		SccProjectUniqueName3 = src\\XGamer.Data\\XGamer.Data.Entities.csproj
-		SccProjectName3 = XGamer.Data
-		SccLocalPath3 = XGamer.Data
-		SccProjectUniqueName4 = src\\XGamer.Data.Core\\XGamer.Data.Core.csproj
-		SccProjectName4 = XGamer.Data.Core
-		SccLocalPath4 = XGamer.Data.Core
-		SccProjectUniqueName5 = src\\XGamer.Data.EF\\XGamer.Data.EF.csproj
-		SccProjectName5 = XGamer.Data.EF
-		SccLocalPath5 = XGamer.Data.EF
-		SccProjectUniqueName6 = src\\XGamer.Data.XML\\XGamer.Data.XML.csproj
-		SccProjectName6 = XGamer.Data.XML
-		SccLocalPath6 = XGamer.Data.XML
-		SccProjectUniqueName7 = src\\XGamer.UI.Loader\\XGamer.UI.Loader.csproj
-		SccProjectName7 = XGamer.UI.Loader
-		SccLocalPath7 = XGamer.UI.Loader
-		SccProjectUniqueName8 = src\\XGamer.UI.WPF\\XGamer.UI.WPF.csproj
-		SccProjectName8 = XGamer.UI.WPF
-		SccLocalPath8 = XGamer.UI.WPF
-		SccProjectUniqueName9 = src\\XGamer.UI.WPF.Tests\\XGamer.UI.WPF.Tests.csproj
-		SccProjectName9 = XGamer.UI.WPF.Tests
-		SccLocalPath9 = XGamer.UI.WPF.Tests
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -81,6 +48,7 @@ Global
 		{D2F41AE3-63C6-4D1B-899F-E11E845CE97C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D2F41AE3-63C6-4D1B-899F-E11E845CE97C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2F41AE3-63C6-4D1B-899F-E11E845CE97C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D2F41AE3-63C6-4D1B-899F-E11E845CE97C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{D2F41AE3-63C6-4D1B-899F-E11E845CE97C}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{D2F41AE3-63C6-4D1B-899F-E11E845CE97C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2F41AE3-63C6-4D1B-899F-E11E845CE97C}.Release|Any CPU.Build.0 = Release|Any CPU
@@ -107,15 +75,6 @@ Global
 		{A821C77A-C071-4A62-BC17-B09E50E322AB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{A821C77A-C071-4A62-BC17-B09E50E322AB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{A821C77A-C071-4A62-BC17-B09E50E322AB}.Release|x86.ActiveCfg = Release|Any CPU
-		{6BCA1952-7A73-4A6B-ABB3-DCBE1C25BCF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6BCA1952-7A73-4A6B-ABB3-DCBE1C25BCF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6BCA1952-7A73-4A6B-ABB3-DCBE1C25BCF0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{6BCA1952-7A73-4A6B-ABB3-DCBE1C25BCF0}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{6BCA1952-7A73-4A6B-ABB3-DCBE1C25BCF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6BCA1952-7A73-4A6B-ABB3-DCBE1C25BCF0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6BCA1952-7A73-4A6B-ABB3-DCBE1C25BCF0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{6BCA1952-7A73-4A6B-ABB3-DCBE1C25BCF0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{6BCA1952-7A73-4A6B-ABB3-DCBE1C25BCF0}.Release|x86.ActiveCfg = Release|Any CPU
 		{023C0874-E1CD-42E8-BD71-50B6A45C4E34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{023C0874-E1CD-42E8-BD71-50B6A45C4E34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{023C0874-E1CD-42E8-BD71-50B6A45C4E34}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -159,5 +118,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7A9117CE-003D-4BAF-880F-B00E006F0A2C}
 	EndGlobalSection
 EndGlobal

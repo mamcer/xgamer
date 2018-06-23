@@ -49,23 +49,23 @@ namespace XGamer.Data.XML
         {
             get
             {
-                if (this.emulators == null)
+                if (emulators == null)
                 {
 
-                    XDocument xmlDoc = this.GetXDocument();
+                    XDocument xmlDoc = GetXDocument();
 
-                    this.emulators = (from rom in xmlDoc.Descendants("Emulator")
+                    emulators = (from rom in xmlDoc.Descendants("Emulator")
                                                          select new Entities.Emulator
                                                          {
                                                              FileName = rom.Element("FileName").Value,
                                                              Parameters = rom.Element("Parameters").Value,
                                                              IdRomType = Convert.ToInt32(rom.Element("IdRomType").Value),
-                                                             RomType = this.GetRomType(Convert.ToInt32(rom.Element("IdRomType").Value))
+                                                             RomType = GetRomType(Convert.ToInt32(rom.Element("IdRomType").Value))
                                                          }).ToList();
 
                 }
 
-                return this.emulators;
+                return emulators;
             }
         }
 
@@ -73,11 +73,11 @@ namespace XGamer.Data.XML
         {
             get 
             {
-                if (this.romTypes == null)
+                if (romTypes == null)
                 {
-                    XDocument xmlDoc = this.GetXDocument();
+                    XDocument xmlDoc = GetXDocument();
 
-                    this.romTypes = (from romType in xmlDoc.Descendants("RomType")
+                    romTypes = (from romType in xmlDoc.Descendants("RomType")
                                      select new Entities.RomType
                                      {
                                          Id = Convert.ToInt32(romType.Element("Id").Value),
@@ -85,7 +85,7 @@ namespace XGamer.Data.XML
                                      }).ToList();
                 }
 
-                return this.romTypes;
+                return romTypes;
             }
         }
 
@@ -93,11 +93,11 @@ namespace XGamer.Data.XML
         {
             get
             {
-                if (this.roms == null)
+                if (roms == null)
                 {
-                    XDocument xmlDoc = this.GetXDocument();
+                    XDocument xmlDoc = GetXDocument();
 
-                    this.roms = (from rom in xmlDoc.Descendants("Rom")
+                    roms = (from rom in xmlDoc.Descendants("Rom")
                                  select new Entities.Rom
                                  {
                                      Id = Convert.ToInt32(rom.Element("Id").Value),
@@ -106,13 +106,13 @@ namespace XGamer.Data.XML
                                      IdRomType = Convert.ToInt32(rom.Element("IdRomType").Value),
                                      Poster1FileName = rom.Element("Poster1FileName").Value,
                                      Poster2FileName = rom.Element("Poster2FileName").Value,
-                                     RomType = this.GetRomType(Convert.ToInt32(rom.Element("IdRomType").Value))
+                                     RomType = GetRomType(Convert.ToInt32(rom.Element("IdRomType").Value))
                                  }).ToList();
                 }
 
-                this.roms.Sort((x, y) => x.GameName.CompareTo(y.GameName));
+                roms.Sort((x, y) => x.GameName.CompareTo(y.GameName));
 
-                return this.roms;
+                return roms;
             }
         }
 
@@ -122,9 +122,9 @@ namespace XGamer.Data.XML
 
         private Entities.RomType GetRomType(int idRomType)
         {
-            if (this.RomTypes.Exists(x => x.Id == idRomType))
+            if (RomTypes.Exists(x => x.Id == idRomType))
             {
-                return this.RomTypes.First(x => x.Id == idRomType);
+                return RomTypes.First(x => x.Id == idRomType);
             }
 
             throw new NullReferenceException(string.Format("Rom Type Id: {0}. Doesn't exists.", idRomType));
@@ -147,17 +147,17 @@ namespace XGamer.Data.XML
 
         public IEnumerable<Entities.Rom> GetAllGames()
         {
-            return this.Games;
+            return Games;
         }
 
         public IEnumerable<Entities.Emulator> GetAllEmulators()
         {
-            return this.Emulators;
+            return Emulators;
         }
 
         public Entities.Rom GetGameById(int gameId)
         {
-            return this.Games.Find(x => x.Id == gameId);
+            return Games.Find(x => x.Id == gameId);
         }
 
         #endregion

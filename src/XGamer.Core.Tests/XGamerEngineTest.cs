@@ -6,7 +6,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using XGamer.Core;
 using XGamer.Data.Entities;
-using XGamer.Core.Moles;
 
 namespace XGamer.Core.Tests
 {

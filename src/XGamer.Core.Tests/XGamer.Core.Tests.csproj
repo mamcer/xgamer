@@ -71,8 +71,5 @@
       <Name>XGamer.Data.Entities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Moles Include="xgamer.core.moles" />
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

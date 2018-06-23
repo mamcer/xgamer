@@ -12,7 +12,7 @@ namespace XGamer.UI.WPF
         public CloseApplication()
         {
             InitializeComponent();
-            this.grdContent.Background = new SolidColorBrush(XGamerEnvironment.BackgroundColor);
+            grdContent.Background = new SolidColorBrush(XGamerEnvironment.BackgroundColor);
         }
 
         private void Button2_Click(object sender, RoutedEventArgs e)

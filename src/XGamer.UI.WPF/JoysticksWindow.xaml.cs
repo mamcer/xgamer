@@ -10,12 +10,12 @@ namespace XGamer.UI.WPF
     {
         public JoysticksWindow()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            if (this.chkMessage.IsChecked == true)
+            if (chkMessage.IsChecked == true)
             {
                 try
                 {
@@ -27,7 +27,7 @@ namespace XGamer.UI.WPF
                 }
             }
 
-            this.Close();
+            Close();
         }
     }
 }

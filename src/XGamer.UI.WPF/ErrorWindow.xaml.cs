@@ -12,28 +12,28 @@ namespace XGamer.UI.WPF
     {
         public ErrorWindow(Exception ex)
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
-            this.grdContent.Background = new SolidColorBrush(XGamerEnvironment.BackgroundColor);
+            grdContent.Background = new SolidColorBrush(XGamerEnvironment.BackgroundColor);
 
             if (ex != null)
             {
-                this.txtError.Text = ex.Message;
+                txtError.Text = ex.Message;
                 if (ex.InnerException != null)
                 {
-                    this.txtError.Text += " - " + ex.Message;
+                    txtError.Text += " - " + ex.Message;
                 }
             }
         }
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void Label_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Clipboard.SetText(this.txtError.Text);
+            Clipboard.SetText(txtError.Text);
         }
     }
 }
