@@ -5,9 +5,6 @@ using XGamer.Core;
 
 namespace XGamer.UI.WPF
 {
-    /// <summary>
-    /// Interaction logic for ErrorWindow.xaml
-    /// </summary>
     public partial class ErrorWindow : Window
     {
         public ErrorWindow(Exception ex)

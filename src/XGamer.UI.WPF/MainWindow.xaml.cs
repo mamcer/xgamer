@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
@@ -13,17 +12,14 @@ using XGamer.Data.Entities;
 
 namespace XGamer.UI.WPF
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window, IDisposable
+    public partial class MainWindow : IDisposable
     {
-        private DispatcherTimer timer;
-        private BackgroundWorker worker;
+        private DispatcherTimer _timer;
+        private BackgroundWorker _worker;
 
         public MainWindow()
         {
-            Loaded += new RoutedEventHandler(MainWindow_Loaded);
+            Loaded += MainWindow_Loaded;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -32,10 +28,10 @@ namespace XGamer.UI.WPF
 
             InititalizeTimer();
 
-            IEnumerable<Rom> allGames;
-            allGames = XGamerEngine.Instance.GetAllGames();
+            var allGames = XGamerEngine.Instance.GetAllGames();
             lstGames.Items.Clear();
-            foreach (Rom game in allGames)
+            var games = allGames as Rom[] ?? allGames.ToArray();
+            foreach (Rom game in games)
             {
                 lstGames.Items.Add(new ListBoxItem() {Content = game.GameName, Uid = game.Id.ToString()});
             }
@@ -46,26 +42,15 @@ namespace XGamer.UI.WPF
                 lstGames.SelectedIndex = 0;
             }
 
-            Worker.DoWork += new DoWorkEventHandler(Worker_DoWork);
+            Worker.DoWork += Worker_DoWork;
 
-            lblGameCount.Content = string.Format("{0} Juegos", allGames.Count());
+            lblGameCount.Content = $"{games.Length} Juegos";
 
             grdHeader.Background = new SolidColorBrush(XGamerEnvironment.BackgroundColor);
             grdFooter.Background = new SolidColorBrush(XGamerEnvironment.BackgroundColor);
         }
 
-        private BackgroundWorker Worker
-        {
-            get
-            {
-                if (worker == null)
-                {
-                    worker = new BackgroundWorker();
-                }
-
-                return worker;
-            }
-        }
+        private BackgroundWorker Worker => _worker ?? (_worker = new BackgroundWorker());
 
         public void SetPosterImage(BitmapImage source)
         {
@@ -102,15 +87,14 @@ namespace XGamer.UI.WPF
 
         private void InititalizeTimer()
         {
-            timer = new DispatcherTimer();
-            timer.Interval = new TimeSpan(0, 0, 1);
-            timer.Tick += new EventHandler(Timer_Tick);
-            timer.IsEnabled = true;
+            _timer = new DispatcherTimer {Interval = new TimeSpan(0, 0, 1)};
+            _timer.Tick += Timer_Tick;
+            _timer.IsEnabled = true;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            lblCurrentTime.Content = string.Format("{0:00}:{1:00}", DateTime.Now.Hour, DateTime.Now.Minute);
+            lblCurrentTime.Content = $"{DateTime.Now.Hour:00}:{DateTime.Now.Minute:00}";
         }
 
         private void LstGames_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -125,8 +109,7 @@ namespace XGamer.UI.WPF
 
         private void LblClose_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            CloseApplication closeApplication = new CloseApplication();
-            closeApplication.Owner = this;
+            CloseApplication closeApplication = new CloseApplication {Owner = this};
             if (closeApplication.ShowDialog() == true)
             {
                 Close();
@@ -143,13 +126,11 @@ namespace XGamer.UI.WPF
 
         private void RunGame()
         {
-            ListBoxItem selectedGame = lstGames.SelectedItem as ListBoxItem;
-            if (selectedGame != null)
+            if (lstGames.SelectedItem is ListBoxItem selectedGame)
             {
                 IsEnabled = false;
-                LoadingGame loadingGame = new LoadingGame();
-                loadingGame.Owner = this;
-                
+                LoadingGame loadingGame = new LoadingGame {Owner = this};
+
                 if (App.joystickMessageWindow != null)
                 {
                     App.joystickMessageWindow.Hide();
@@ -171,8 +152,7 @@ namespace XGamer.UI.WPF
 
         private void LstGames_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ListBoxItem selectedGame = lstGames.SelectedItem as ListBoxItem;
-            if (selectedGame != null)
+            if (lstGames.SelectedItem is ListBoxItem selectedGame)
             {
                 int gameId = Convert.ToInt32(selectedGame.Uid);
 
@@ -192,29 +172,29 @@ namespace XGamer.UI.WPF
 
         private void LblMinimize_MouseEnter(object sender, MouseEventArgs e)
         {
-            lblMinimize.Foreground = System.Windows.Media.Brushes.Black;
+            lblMinimize.Foreground = Brushes.Black;
         }
 
         private void LblMinimize_MouseLeave(object sender, MouseEventArgs e)
         {
-            lblMinimize.Foreground = System.Windows.Media.Brushes.White;
+            lblMinimize.Foreground = Brushes.White;
         }
 
         private void LblClose_MouseEnter(object sender, MouseEventArgs e)
         {
-            lblClose.Foreground = System.Windows.Media.Brushes.Black;
+            lblClose.Foreground = Brushes.Black;
         }
 
         private void LblClose_MouseLeave(object sender, MouseEventArgs e)
         {
-            lblClose.Foreground = System.Windows.Media.Brushes.White;
+            lblClose.Foreground = Brushes.White;
         }
 
         protected virtual void Dispose(bool b)
         {
             if (b)
             {
-                worker.Dispose();
+                _worker.Dispose();
             }
         }
 

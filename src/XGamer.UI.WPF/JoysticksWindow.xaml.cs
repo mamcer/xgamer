@@ -3,9 +3,6 @@ using System.Windows;
 
 namespace XGamer.UI.WPF
 {
-    /// <summary>
-    /// Interaction logic for JoysticksWindow.xaml
-    /// </summary>
     public partial class JoysticksWindow : Window
     {
         public JoysticksWindow()

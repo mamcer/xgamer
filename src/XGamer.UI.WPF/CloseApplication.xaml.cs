@@ -4,9 +4,6 @@ using XGamer.Core;
 
 namespace XGamer.UI.WPF
 {
-    /// <summary>
-    /// Interaction logic for CloseApplication.xaml
-    /// </summary>
     public partial class CloseApplication : Window
     {
         public CloseApplication()
