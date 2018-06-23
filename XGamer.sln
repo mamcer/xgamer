@@ -21,8 +21,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.UI.Loader", "src\XGa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.UI.WPF", "src\XGamer.UI.WPF\XGamer.UI.WPF.csproj", "{D193B17D-FD9B-4507-BFFD-20B5D4DA089D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGamer.UI.WPF.Tests", "src\XGamer.UI.WPF.Tests\XGamer.UI.WPF.Tests.csproj", "{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,16 +91,6 @@ Global
 		{D193B17D-FD9B-4507-BFFD-20B5D4DA089D}.Release|Mixed Platforms.Build.0 = Release|x86
 		{D193B17D-FD9B-4507-BFFD-20B5D4DA089D}.Release|x86.ActiveCfg = Release|x86
 		{D193B17D-FD9B-4507-BFFD-20B5D4DA089D}.Release|x86.Build.0 = Release|x86
-		{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{7A8D28D2-3EFF-451B-B5AE-0BDF1782E58E}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
