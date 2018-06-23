@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using XGamer.Data.Entities;
@@ -35,7 +34,7 @@ namespace XGamer.Core
             Environment.CurrentDirectory = Path.Combine(XGamerEnvironment.EmulatorsPath, emulator.RomType.Description);
             string emulatorPath = emulator.FileName;
             string romPath = Path.Combine(XGamerEnvironment.RomsPath, game.RomType.Description);
-            string parameters = string.Empty;
+            string parameters;
             if (game.IdRomType == 3)
             {
                 parameters = string.Format(emulator.Parameters, game.FileName);
@@ -45,9 +44,11 @@ namespace XGamer.Core
                 parameters = string.Format(emulator.Parameters, Path.Combine(romPath, game.FileName));
             }
 
-            _process = new Process();
-            _process.StartInfo = new ProcessStartInfo(emulatorPath, parameters);
-            
+            _process = new Process
+            {
+                StartInfo = new ProcessStartInfo(emulatorPath, parameters)
+            };
+
             try
             {
                 _process.Start();

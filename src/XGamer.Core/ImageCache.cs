@@ -7,25 +7,25 @@
 
     public class ImageCache
     {
-        private static readonly object lockObject = new object();
+        private static readonly object LockObject = new object();
 
-        private Dictionary<string, BitmapImage> cacheDictionary;
-        private string[] imageFilePaths;
-        private int imageIndex;          
+        private readonly Dictionary<string, BitmapImage> _cacheDictionary;
+        private readonly string[] _imageFilePaths;
+        private int _imageIndex;          
 
         public ImageCache(string imageFolderPath)
         {
-            cacheDictionary = new Dictionary<string, BitmapImage>();
-            imageFilePaths = Directory.GetFiles(imageFolderPath, "*.jpg", SearchOption.AllDirectories);
-            imageIndex = 0;
+            _cacheDictionary = new Dictionary<string, BitmapImage>();
+            _imageFilePaths = Directory.GetFiles(imageFolderPath, "*.jpg", SearchOption.AllDirectories);
+            _imageIndex = 0;
         }
 
         public void ProcessImageFolder()
         {
-            while (imageIndex < imageFilePaths.Length)
+            while (_imageIndex < _imageFilePaths.Length)
             {
                 BitmapImage bi = new BitmapImage();
-                string imagePath = imageFilePaths[imageIndex];
+                string imagePath = _imageFilePaths[_imageIndex];
                 try
                 {
                     bi.BeginInit();
@@ -40,15 +40,18 @@
 
                 string fileName = Path.GetFileName(imagePath);
                 SetImage(bi, fileName);
-                imageIndex += 1;
+                _imageIndex += 1;
             }
         }
 
         public BitmapImage GetImage(string key)
         {
-            if (cacheDictionary.ContainsKey(key))
+            lock (LockObject)
             {
-                return cacheDictionary[key];
+                if (_cacheDictionary.ContainsKey(key))
+                {
+                    return _cacheDictionary[key];
+                }
             }
 
             return null;
@@ -56,9 +59,9 @@
 
         private void SetImage(BitmapImage bi, string key)
         {
-            lock (lockObject)
+            lock (LockObject)
             {
-                cacheDictionary[key] = bi;
+                _cacheDictionary[key] = bi;
             }
         }
     }
