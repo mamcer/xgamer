@@ -13,22 +13,22 @@ namespace XGamer.UI.Loader
             if (IsAlreadyInstalled())
             {
                 btnFromPC.Background = new SolidColorBrush(new Color() { R = 128, G = 255, B = 128, A = 255 });
-                btnFromPC.Content = XGamer.UI.Loader.Properties.Resources.PlayFromPC;
+                btnFromPC.Content = Properties.Resources.PlayFromPC;
             }
         }
 
         private void BtnFromDVD_Click(object sender, RoutedEventArgs e)
         {
-            Directory.SetCurrentDirectory(Path.Combine(".", XGamer.UI.Loader.Properties.Resources.XGamerSourceDirectory));
-            Process.Start(XGamer.UI.Loader.Properties.Resources.XGamerTargetName);
+            Directory.SetCurrentDirectory(Path.Combine(".", Properties.Resources.XGamerSourceDirectory));
+            Process.Start(Properties.Resources.XGamerTargetName);
             Close();
         }
 
         private bool IsAlreadyInstalled()
         {
-            if (Directory.Exists(XGamer.UI.Loader.Properties.Resources.XGamerTargetDirectory))
+            if (Directory.Exists(Properties.Resources.XGamerTargetDirectory))
             {
-                return File.Exists(Path.Combine(XGamer.UI.Loader.Properties.Resources.XGamerTargetDirectory, Path.Combine(XGamer.UI.Loader.Properties.Resources.XGamerTargetName)));
+                return File.Exists(Path.Combine(Properties.Resources.XGamerTargetDirectory, Path.Combine(Properties.Resources.XGamerTargetName)));
             }
 
             return false;
@@ -38,9 +38,9 @@ namespace XGamer.UI.Loader
         {
             if (!IsAlreadyInstalled())
             {
-                Directory.CreateDirectory(XGamer.UI.Loader.Properties.Resources.XGamerTargetDirectory);
-                string sourcePath = XGamer.UI.Loader.Properties.Resources.XGamerSourceDirectory;
-                string destinationPath = XGamer.UI.Loader.Properties.Resources.XGamerTargetDirectory;
+                Directory.CreateDirectory(Properties.Resources.XGamerTargetDirectory);
+                string sourcePath = Properties.Resources.XGamerSourceDirectory;
+                string destinationPath = Properties.Resources.XGamerTargetDirectory;
                 CopyInProgressWindow copyWindow = new CopyInProgressWindow(sourcePath, destinationPath);
                
                 if (copyWindow.ShowDialog() != true)
@@ -49,8 +49,8 @@ namespace XGamer.UI.Loader
                 }
             }
 
-            Directory.SetCurrentDirectory(XGamer.UI.Loader.Properties.Resources.XGamerTargetDirectory);
-            Process.Start(Path.Combine(XGamer.UI.Loader.Properties.Resources.XGamerTargetDirectory, Path.Combine(XGamer.UI.Loader.Properties.Resources.XGamerTargetName)));
+            Directory.SetCurrentDirectory(Properties.Resources.XGamerTargetDirectory);
+            Process.Start(Path.Combine(Properties.Resources.XGamerTargetDirectory, Path.Combine(Properties.Resources.XGamerTargetName)));
             Close();
         }
 

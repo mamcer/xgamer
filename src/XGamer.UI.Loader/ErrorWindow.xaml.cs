@@ -3,9 +3,6 @@ using System.Windows;
 
 namespace XGamer.UI.Loader
 {
-    /// <summary>
-    /// Interaction logic for ErrorWindow.xaml
-    /// </summary>
     public partial class ErrorWindow : Window
     {
         public ErrorWindow(Exception ex)
