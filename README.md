@@ -6,7 +6,7 @@ In `original` branch you will find the original source code for this application
 
 ## Description 
 
-This application was done to my godhild. He was playing great past console games through emulators. This application is a front end which helped him select and play a specific game.
+This application was done to my godchild. He was playing great past console games through emulators. This application is a front end which helped him select and play a specific game.
 
 ## Screenshot
 
